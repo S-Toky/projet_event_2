@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>home</title>
+</head>
+<body>
+  <div style="background-color: green;">
+         <h1><marquee> 🎉🥳 WELCOME TO THE EVENT 🥳🎉 </marquee></h1>
+       </div>
+ 
+ <div class="row">
+    <% @event.each do |events|%>
+   <div class="col-md-4">
+       <h2>Event <%=events.id%></h2>
+       <p>Title : <%=events.title%></br>
+         Date : <%=events.start_date%></br>
+              Price : <%=events.price%> euro</br>
+       </p>
+       <p>
+         <p><a class="btn btn-secondary" href="/events/<%=events.id%>" role="button">View details &raquo;</a></p>
+       </p>
+   </div>
+  <%end%>
+ </div>
+</body>
+</html>
+ 

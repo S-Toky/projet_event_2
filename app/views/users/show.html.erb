@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profil</title>
+</head>
+<body>
+<div>
+	<h2><%=@event.admin.first_name%> <%= @event.admin.last_name%></h2>
+	<p>
+		E-mail : <%=@event.admin.email%></br>
+		Description : <%=@event.admin.description%></br>
+	</p>
+</div>
+<div>
+	<h3> liste de vos événement </h3>
+	<p>
+		titre : 
+		<%@events.each do |i|%> 
+			<%if @event.admin.id == i.admin_id%>
+				<%=i.title%></br>
+			<%end%>
+		<%end%>
+</div>
+</body>
+</html>
+

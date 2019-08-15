@@ -1,0 +1,35 @@
+
+<div class="container" >
+   <div class="row">
+     <div class="col-md-8 mx-auto mt-5">
+       <%= form_tag url_for(action: "update"), method: "put" do %>
+       <%= label_tag 'Start_Date' %>
+       <%= date_field_tag 'start_date', @event.start_date, class: 'form-control'%>
+       <%= label_tag 'Duration' %>
+       <%= number_field_tag 'duration', @event.duration, class: 'form-control'%>
+       <%= label_tag 'Location' %>
+       <%= text_field_tag 'location', @event.location, class: 'form-control'%>
+       <%= label_tag 'Title' %>
+       <%= text_field_tag 'title', @event.title, class: 'form-control'%>
+       <%= label_tag 'Description' %>
+       <%= text_field_tag 'description', @event.description, class: 'form-control'%>
+       <%= label_tag 'Price' %>
+       <%= number_field_tag 'price', @event.price, class: 'form-control'%>
+       <br/>
+       <%= submit_tag "Create event", class: 'btn btn-lg btn-primary btn-block' %>
+     <% end %>
+     </div>
+   </div>
+ </div>
+  <% if @event.errors.any? %>
+       <div class="alert alert-danger" role="alert">
+            A simple danger alert—check it out!
+      </div>
+
+            <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+            <ul>
+              <% @event.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+      <% end %>

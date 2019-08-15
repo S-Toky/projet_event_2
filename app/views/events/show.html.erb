@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Details de l'événement</title>
+</head>
+	<body>
+		<div>
+			<h2><%=@event.title%></h2>
+				<p>
+					Date de debut : <%=@event.start_date%></br>
+					Duration : <%=@event.duration%></br>
+					Date de fin : <%="#{@event.start_date + (@event.duration * 60)}" %> </br>
+					Price : <%=@event.price%> euro</br>
+					Locatin : <%=@event.location%> </br>
+					Description : <%=@event.description%></br>
+				</p>
+			 <span class="btn btn-light"><%= link_to "back to home ", controller:"events", action:"index"%></span>
+		</div>
+			 
+			 
+		<div>
+			<% if user_signed_in?%>	
+			  <% if current_user.id == @event.admin.id%>
+	      		<a class="btn btn-danger", href="/events/<%=@event.id%>", data-confirm="are you ok?", data-method="DELETE" > Delete </a>
+	      			<span class="btn btn-success"> <%= link_to "Edit", controller:"events", action:"edit", id:@event.id%></span>
+	 		  	<%else%>
+	   		<%end%>
+	   	<%else%>
+	   		<%end%>
+	    </div>
+	</body>
+</html>
